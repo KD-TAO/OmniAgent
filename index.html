@@ -3,31 +3,26 @@
 
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
   <meta name="description" content="OmniAgent: Audio-Guided Active Perception Agent for Omnimodal Audio-Video Understanding">
   <meta property="og:title" content="OmniAgent"/>
   <meta property="og:description" content="OmniAgent: Audio-Guided Active Perception Agent for Omnimodal Audio-Video Understanding"/>
   <meta property="og:url" content="URL OF THE WEBSITE"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
   <meta property="og:image" content="static/images/westlake.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:title" content="OmniAgent">
+  <meta name="twitter:description" content="Audio-Guided Active Perception Agent">
   <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords" content="omni large language models, agent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-  <title>OmniAgent</title>
+  <title>OmniAgent: Audio-Guided Active Perception</title>
   <link rel="icon" type="image/x-icon" href="static/images/westlake.png">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
@@ -37,36 +32,284 @@
   <link rel="stylesheet" href="static/css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --primary-color: #0f172a; /* Midnight Blue */
+      --accent-color: #3b82f6;  /* Electric Blue */
+      --text-color: #334155;
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --code-bg: #1e293b;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      /* Tech Grid Background */
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+      background-size: 40px 40px; 
+    }
+
+    /* --- Title Fix for 2 Lines --- */
+    h1.title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      color: var(--primary-color);
+      letter-spacing: -0.02em;
+    }
+
+    .publication-title {
+      background: linear-gradient(135deg, #0f172a 0%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem !important;
+      /* Adjusted Clamp: Min 1.8rem, Preferred 3.5vw, Max 2.8rem */
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem) !important; 
+      line-height: 1.15 !important;
+      padding: 0 10px;
+    }
+
+    /* Helper class to force breaks cleanly */
+    .title-line {
+      display: inline-block;
+    }
+
+    .author-block a {
+      color: var(--accent-color);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .author-block a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    /* --- Animated Tech Buttons --- */
+    .button.is-dark {
+      background-color: var(--primary-color);
+      border: 1px solid transparent;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.2);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .button.is-dark::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.5s;
+      z-index: -1;
+    }
+
+    .button.is-dark:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+      border-color: var(--accent-color);
+    }
+
+    .button.is-dark:hover::before {
+      left: 100%;
+    }
+
+    .button.is-dark:hover .icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    .button.is-dark .icon {
+      transition: transform 0.2s ease;
+    }
+
+    /* --- Abstract Glass Panel --- */
+    .hero.is-light {
+      background: transparent;
+    }
+    
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent-color);
+    }
+
+    /* --- Method Section: Blueprint Card --- */
+    .method-container {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      /* Subtle grid pattern inside the card */
+      background-image: 
+        linear-gradient(#f1f5f9 1px, transparent 1px),
+        linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    /* Corner Decorations for "Viewfinder" look */
+    .method-container::after, .method-container::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--accent-color);
+      transition: all 0.3s ease;
+    }
+    
+    .method-container::before {
+      top: -1px; left: -1px;
+      border-right: none; border-bottom: none;
+      border-top-left-radius: 8px;
+    }
+    
+    .method-container::after {
+      bottom: -1px; right: -1px;
+      border-left: none; border-top: none;
+      border-bottom-right-radius: 8px;
+    }
+
+    .method-container:hover::before, .method-container:hover::after {
+      width: 40px; height: 40px; /* Animate corners on hover */
+    }
+
+    /* --- Results Section: Dashboard --- */
+    .results-dashboard {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      border: 1px solid #cbd5e1;
+    }
+
+    .dashboard-header {
+      background: #0f172a;
+      color: #fff;
+      padding: 10px 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dashboard-dots span {
+      display: inline-block;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background-color: #334155;
+      margin-right: 5px;
+    }
+    
+    .dashboard-dots span:nth-child(1) { background-color: #ef4444; }
+    .dashboard-dots span:nth-child(2) { background-color: #f59e0b; }
+    .dashboard-dots span:nth-child(3) { background-color: #10b981; }
+
+    .carousel {
+      padding: 20px;
+    }
+
+    /* --- BibTeX Window --- */
+    pre {
+      background-color: var(--code-bg) !important;
+      color: #cbd5e1 !important;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      padding: 1.5rem;
+      padding-top: 3rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    pre::before {
+      content: "bibtex.bib";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 36px;
+      background: #0f172a;
+      border-bottom: 1px solid #334155;
+      color: #94a3b8;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    /* Image styling updates */
+    figure img {
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+    
+    figcaption {
+      margin-top: 10px;
+      font-family: 'Inter', sans-serif;
+      color: #64748b;
+    }
+
+    .footer {
+      background-color: white;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 3rem;
+    }
+
+  </style>
 </head>
 
 <body>
-
-  <div id="loading" style="display: none;">
-    <div class="loading-spinner"></div>
-  </div>
-
-  <button id="back-to-top" class="button is-primary is-rounded" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 99;">
-    <span class="icon">
-      <i class="fas fa-arrow-up"></i>
-    </span>
-  </button>
 
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">OmniAgent: Audio-Guided Active Perception Agent for Omnimodal Audio-Video Understanding</h1>
-            <!-- <div class="is-size-4 has-text-centered" style="color: red; font-weight: bold; margin: 20px 0;">NeurIPS 2025</div> -->
+            
+            <figure class="image is-inline-block" style="width: 80%; max-width: 500px; margin-bottom: 10px;">
+              <img src="static/images/logo.png" 
+                   alt="OmniAgent Logo" 
+                   style="mix-blend-mode: multiply; border: none; box-shadow: none;">
+            </figure>
+            <h1 class="title is-1 publication-title">
+              <span class="title-line">OmniAgent: Audio-Guided Active Perception Agent for Omnimodal</span><br>
+              <span class="title-line">Audio-Video Understanding</span>
+            </h1>
+            
             <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
               <span class="author-block">
                 <a href="https://kd-tao.github.io/" target="_blank">Keda Tao</a><sup>1,2,3</sup>,
               </span>
@@ -87,235 +330,183 @@
               </span>
             </div>
 
-            <div class="is-size-5 publication-institutions">
-              <!-- Institutions -->
-              <span class="institution-block">
-                <sup>1</sup>Zhejiang University,
-                <sup>2</sup>Westlake University,
-                <sup>3</sup>Ant Group,
-              </span>
-              <span class="eql-cntrb">
-                <small><br><sup>*</sup>Corresponding Authors. </small> <small>
-              </span>
+            <div class="is-size-5 publication-institutions" style="color: #64748b; margin-bottom: 20px;">
+              <span class="institution-block"><sup>1</sup>Zhejiang University</span>&nbsp;&nbsp;
+              <span class="institution-block"><sup>2</sup>Westlake University</span>&nbsp;&nbsp;
+              <span class="institution-block"><sup>3</sup>Ant Group</span>
+              <br>
+              <span class="eql-cntrb"><small><sup>*</sup>Corresponding Authors.</small></span>
             </div>
 
-
-            <div class="columns is-centered" style="display: flex; justify-content: center; align-items: center;">
-              <div class="column is-narrow" style="display: flex; justify-content: center; align-items: center;">
-                <img src="static/images/zju-logo.svg" alt="Zhejiang University" style="height: 92px; width: auto; object-fit: contain;">
+            <div class="columns is-centered is-mobile" style="margin-top: 10px; margin-bottom: 20px;">
+              <div class="column is-narrow">
+                <img src="static/images/zju-logo.svg" alt="Zhejiang University" style="height: 60px; width: auto; opacity: 0.9;">
               </div>
-              <div class="column is-narrow" style="display: flex; justify-content: center; align-items: center;">
-                <img src="static/images/westlake.png" alt="Westlake University" style="height: 92px; width: auto; object-fit: contain;">
+              <div class="column is-narrow">
+                <img src="static/images/westlake.png" alt="Westlake University" style="height: 60px; width: auto; opacity: 0.9;">
               </div>
-              <div class="column is-narrow" style="display: flex; justify-content: center; align-items: center;">
-                <img src="static/images/ant-logo.png" alt="Ant Group" style="height: 92px; width: auto; object-fit: contain;">
+              <div class="column is-narrow">
+                <img src="static/images/ant-logo.png" alt="Ant Group" style="height: 60px; width: auto; opacity: 0.9;">
               </div>
             </div>
 
             <div class="column has-text-centered">
               <div class="publication-links">
+                <span class="link-block">
+                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Coming Soon</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-              <!-- Arxiv PDF link -->
-              <span class="link-block">
-                <a href="" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+          <div class="method-container">
+            <figure>
+              <img src="static/images/teaser.png" alt="" style="box-shadow: none; border: none;">
+              <figcaption class="title is-5" style="margin-top: 15px; color: #475569;"></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-              <!-- Github link -->
-              <span class="link-block">
-                <a href="https://github.com/KD-TAO/OmniAgent" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                </a>
-              </span>
-
-              <!-- ArXiv abstract Link -->
-              <span class="link-block">
-                <a href="" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="glass-panel">
+            <h2 class="title is-3 has-text-left" style="color: var(--primary-color);">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Omnimodal large language models have made significant strides in unifying audio and visual modalities; however, they often lack the fine-grained cross-modal understanding and have difficulty with multimodal alignment. 
+                <br><br>
+                To address these limitations, we introduce <strong>OmniAgent</strong>, a fully audio-guided active perception agent that dynamically orchestrates specialized tools to achieve more fine-grained audio-visual reasoning. Unlike previous works that rely on rigid, static workflows and dense frame-captioning, this paper demonstrates a paradigm shift from passive response generation to <strong>active multimodal inquiry</strong>. 
+                <br><br>
+                OmniAgent employs dynamic planning to autonomously orchestrate tool invocation on demand, strategically concentrating perceptual attention on task-relevant cues. Central to our approach is a novel <em>coarse-to-fine audio-guided perception paradigm</em>, which leverages audio cues to localize temporal events and efficiently guide subsequent granular analysis. Extensive empirical evaluations on three audio-video understanding benchmarks demonstrate that OmniAgent achieves state-of-the-art performance, surpassing leading open-source and proprietary models by substantial margins of <strong>10% - 20%</strong>.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Teaser Section-->
-<section class="section hero">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-five-sixths">
-        <figure>
-          <img data-src="static/images/teaser.png" alt="teaser" 
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
-      </figure>
-      </figure>
-    </div>
-    </div>
-  </div>
-</section>
-<!-- End Teaser Section-->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-Omnimodal large language models have made significant strides in unifying audio and visual modalities; however, they often lack the fine-grained cross-modal understanding and have difficulty with multimodal alignment. 
-To address these limitations, we introduce OmniAgent, a fully audio-guided active perception agent that dynamically orchestrates specialized tools to achieve more fine-grained audio-visual reasoning.  
-Unlike previous works that rely on rigid, static workflows and dense frame-captioning, this paper demonstrates a paradigm shift from passive response generation to active multimodal inquiry. OmniAgent employs dynamic planning to autonomously orchestrate tool invocation on demand, strategically concentrating perceptual attention on task-relevant cues.
-Central to our approach is a novel coarse-to-fine audio-guided perception paradigm, which leverages audio cues to localize temporal events and efficiently guide subsequent granular analysis.
-Extensive empirical evaluations on three audio-video understanding benchmarks demonstrate that OmniAgent achieves state-of-the-art performance, surpassing leading open-source and proprietary models by substantial margins of 10% - 20%.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-<!-- Method Section-->
-<section class="section hero">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-five-sixths">
-        <h2 class="title is-3 has-text-left">Method</h2>
-        <figure>
-          <img data-src="static/images/method.png" alt="Overview of OmniAgent Framework" 
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
-          <figcaption class="title is-5">Overview of OmniAgent Framework</figcaption>
-      </figure>
-      </figure>
-    </div>
-    </div>
-  </div>
-</section>
-<!-- End Method Section-->
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
+  <section class="section">
     <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered" style="margin-bottom: 0.5rem;">Results</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item" style="min-height: 100%; display: flex; flex-direction: column; justify-content: center;">
-        <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: 2rem auto;">
-          <img src="static/images/tab1.png" alt="main results" 
-               style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); max-width: 95%;">
-        </figure>
-        <h2 class="subtitle has-text-centered">
-        </h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+          <h2 class="title is-3 has-text-left">Methodology</h2>
+          <div class="method-container">
+            <figure>
+              <img src="static/images/method.png" alt="Overview of OmniAgent Framework" style="box-shadow: none; border: none;">
+              <figcaption class="title is-5" style="margin-top: 15px; color: #475569;">Overview of the OmniAgent Framework</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
-      <div class="item" style="min-height: 100%; display: flex; flex-direction: column; justify-content: center;">
-        <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: 2rem auto;">
-          <img src="static/images/tab2.png" alt="lossless performance" 
-               style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); max-width: 95%;">
-        </figure>
-        <h2 class="subtitle has-text-centered">
-      </h2>
-      </div>
-      <div class="item" style="min-height: 100%; display: flex; flex-direction: column; justify-content: center;">
-        <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: 2rem auto;">
-          <img src="static/images/tab3.png" alt="Mask analysis"
-               style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); max-width: 60%;">
-        </figure>
-        <h2 class="subtitle has-text-centered">
-       </h2>
-      </div>
-      <div class="item" style="min-height: 100%; display: flex; flex-direction: column; justify-content: center;">
-        <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: 2rem auto;">
-          <img src="static/images/fig5.png" alt="Error analysis"
-               style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); max-width: 60%;">
-        </figure>
-        <h2 class="subtitle has-text-centered">
-       </h2>
-     </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
+    </div>
+  </section>
 
-<!-- Method Section-->
-<section class="section hero is-max-desktop" style="text-align: left;">
-  <div class="container is-max-desktop">
-    <div class="columns">
-      <div class="column is-five-sixths">
-        <h2 class="title is-3">Contact</h2>
-        <li class="title is-6">
-          This work produced by the <a href="https://westlake-encode-lab.github.io/">Westlake ENCODE LAB</a>.
-        </li>
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered" style="margin-bottom: 30px;">Experimental Results</h2>
         
-        <li class="title is-6">
-          If you have any questions, please contact with <a href="mailto:KD.TAO@outlook.com">KD.TAO@outlook.com</a>. <span style="display: inline-block; width: 500px;"></span>
-        </li>
+        <div class="results-dashboard">
+          <div class="dashboard-header">
+            <div class="dashboard-dots"><span></span><span></span><span></span></div>
+            <div>Experimental Results</div>
+            <div><i class="fas fa-chart-bar"></i></div>
+          </div>
+          
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item">
+              <figure class="image">
+                <img src="static/images/tab1.png" alt="Main Results" style="border: none;">
+                <figcaption class="has-text-centered">Table 1: Main Performance Comparison</figcaption>
+              </figure>
+            </div>
+            <div class="item">
+              <figure class="image">
+                <img src="static/images/figure5.png" alt="Error Analysis" style="border: none;">
+                <figcaption class="has-text-centered">Figure 5: Error Analysis</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
-  </div>
-</section>
-<!-- End Method Section-->
+  </section>
 
-<!-- BibTeX citation -->
-<section class="section hero is-small is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-left">
-      <div class="column is-five-sixths">
-      <h2 class="title">BibTeX</h2>
-          <pre style="background-color: #ffffff; overflow-x: auto; white-space: pre-wrap;">
-<code>@article{vidkv,
-  title={OmniAgent: Audio-Guided Active Perception Agent for Omnimodal Audio-Video Understanding},
-  author={Tao, Keda and Du, Wenjie and Yu, Bohan and Wang, Weiqiang and Wang, Huan},
-  journal={arXiv preprint arXiv:2512.xxxxx},
-  year={2025}
-}</code></pre>
+  <section class="section" style="background-color: transparent;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Contact</h2>
+          <div class="content box" style="background: rgba(255,255,255,0.7); border: 1px solid #e2e8f0;">
+            <p>
+              This work is produced by the <a href="https://westlake-encode-lab.github.io/" style="color: var(--accent-color); font-weight: bold;">Westlake ENCODE LAB</a>.
+            </p>
+            <p>
+              For questions, please contact <a href="mailto:KD.TAO@outlook.com" style="color: var(--accent-color); font-weight: bold;">KD.TAO@outlook.com</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-</section>
-<!-- End BibTeX citation -->
+  </section>
 
-
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
-                target="_blank">Academic Project Page Template</a>
-          </p>
-
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">BibTeX</h2>
+          <pre><code>coming soon</code></pre>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered" style="font-size: 0.9rem;">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+              <br>
+              <span style="color: #94a3b8;">Licensed under CC-BY-SA 4.0</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    <!-- End of Statcounter Code -->
-
-  </body>
-
-  </html>
+</body>
+</html>
