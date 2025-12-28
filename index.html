@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="OmniAgent: Audio-Guided Active Perception Agent for Omnimodal Audio-Video Understanding">
+  <meta property="og:title" content="OmniAgent"/>
+  <meta property="og:description" content="OmniAgent: Audio-Guided Active Perception Agent for Omnimodal Audio-Video Understanding"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/images/westlake.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="omni large language models, agent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>OmniAgent</title>
+  <link rel="icon" type="image/x-icon" href="static/images/westlake.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <div id="loading" style="display: none;">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <button id="back-to-top" class="button is-primary is-rounded" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 99;">
+    <span class="icon">
+      <i class="fas fa-arrow-up"></i>
+    </span>
+  </button>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">OmniAgent: Audio-Guided Active Perception Agent for Omnimodal Audio-Video Understanding</h1>
+            <!-- <div class="is-size-4 has-text-centered" style="color: red; font-weight: bold; margin: 20px 0;">NeurIPS 2025</div> -->
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://kd-tao.github.io/" target="_blank">Keda Tao</a><sup>1,2,3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://kurt232.github.io/" target="_blank">Wenjie Du</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="" target="_blank">Bohan Yu</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="" target="_blank">Weiqiang Wang</a><sup>3</sup>, and
+              </span>
+              <span class="author-block">
+                <a href="" target="_blank">Jian Liu</a><sup>3,&ast;</sup>
+              </span>
+              <span class="author-block">
+                <a href="https://huanwang.tech/" target="_blank">Huan Wang</a><sup>2,&ast;</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-institutions">
+              <!-- Institutions -->
+              <span class="institution-block">
+                <sup>1</sup>Zhejiang University,
+                <sup>2</sup>Westlake University,
+                <sup>3</sup>Ant Group,
+              </span>
+              <span class="eql-cntrb">
+                <small><br><sup>*</sup>Corresponding Authors. </small> <small>
+              </span>
+            </div>
+
+
+            <div class="columns is-centered" style="display: flex; justify-content: center; align-items: center;">
+              <div class="column is-narrow" style="display: flex; justify-content: center; align-items: center;">
+                <img src="static/images/zju-logo.svg" alt="Zhejiang University" style="height: 92px; width: auto; object-fit: contain;">
+              </div>
+              <div class="column is-narrow" style="display: flex; justify-content: center; align-items: center;">
+                <img src="static/images/westlake.png" alt="Westlake University" style="height: 92px; width: auto; object-fit: contain;">
+              </div>
+              <div class="column is-narrow" style="display: flex; justify-content: center; align-items: center;">
+                <img src="static/images/ant-logo.png" alt="Ant Group" style="height: 92px; width: auto; object-fit: contain;">
+              </div>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+
+              <!-- Arxiv PDF link -->
+              <span class="link-block">
+                <a href="" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Github link -->
+              <span class="link-block">
+                <a href="https://github.com/KD-TAO/OmniAgent" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+
+              <!-- ArXiv abstract Link -->
+              <span class="link-block">
+                <a href="" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+Omnimodal large language models have made significant strides in unifying audio and visual modalities; however, they often lack the fine-grained cross-modal understanding and have difficulty with multimodal alignment. 
+To address these limitations, we introduce OmniAgent, a fully audio-guided active perception agent that dynamically orchestrates specialized tools to achieve more fine-grained audio-visual reasoning.  
+Unlike previous works that rely on rigid, static workflows and dense frame-captioning, this paper demonstrates a paradigm shift from passive response generation to active multimodal inquiry. OmniAgent employs dynamic planning to autonomously orchestrate tool invocation on demand, strategically concentrating perceptual attention on task-relevant cues.
+Central to our approach is a novel coarse-to-fine audio-guided perception paradigm, which exploits audio cues to efficiently localize temporal events and guide subsequent granular analysis.
+Extensive empirical evaluations on three audio-video understanding benchmarks demonstrate that OmniAgent achieves state-of-the-art performance, surpassing leading open-source and proprietary models by substantial margins of 10% - 20%.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Method Section-->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-sixths">
+        <h2 class="title is-3 has-text-left">Method</h2>
+        <figure>
+          <img data-src="static/images/method.png" alt="Overview of VidKV" 
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+          <figcaption class="title is-5">Overview of VidKV</figcaption>
+      </figure>
+      </figure>
+    </div>
+    </div>
+  </div>
+</section>
+<!-- End Method Section-->
+
+<!-- Results Section -->
+<section class="section hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-left">
+        <div class="column is-five-sixths">
+          <h2 class="title is-3">Results</h2>
+          <details>
+            <summary class="title is-5">Quantitative Comparisons (click to expand)</summary>
+            <div class="content">
+              <ul>
+                <li class="title is-6">Results on video understanding benchmarks from main paper. </li>
+              </ul>
+              <p class="has-text-centered">
+                <img data-src="static/images/tab1.png" 
+                      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+              </p>
+              <ul>
+                <li class="title is-6">Results in ablation study from main paper. </li>
+              </ul>
+              <p class="has-text-centered">
+                <img data-src="static/images/tab2.png"
+                      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+              </p>
+            </div>
+          </details>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End Results Section -->
+
+<!-- Method Section-->
+<section class="section hero is-max-desktop" style="text-align: left;">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column is-five-sixths">
+        <h2 class="title is-3">Contact</h2>
+        <li class="title is-6">
+          This work produced by the Westlake ENCODE LAB.
+        </li>
+        
+        <li class="title is-6">
+          If you have any questions, please contact with KD.TAO@outlook.com. <span style="display: inline-block; width: 500px;"></span>
+        </li>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Method Section-->
+
+<!-- BibTeX citation -->
+<section class="section hero is-small is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-left">
+      <div class="column is-five-sixths">
+      <h2 class="title">BibTeX</h2>
+          <pre style="background-color: #ffffff; overflow-x: auto; white-space: pre-wrap;">
+<code>@article{vidkv,
+  title={Plug-and-Play 1.x-Bit KV Cache Quantization for Video Large Language Models},
+  author={Tao, Keda and You, Haoxuan and Sui, Yang and Qin, Can and Wang, Huan},
+  journal={arXiv preprint arXiv:2503.16257},
+  year={2025}
+}</code></pre>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- End BibTeX citation -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+
+  </html>
