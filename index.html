@@ -155,6 +155,22 @@
   </div>
 </section>
 
+<!-- Teaser Section-->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-sixths">
+        <figure>
+          <img data-src="static/images/teaser.png" alt="teaser" 
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+      </figure>
+      </figure>
+    </div>
+    </div>
+  </div>
+</section>
+<!-- End Teaser Section-->
+
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
@@ -166,7 +182,7 @@
 Omnimodal large language models have made significant strides in unifying audio and visual modalities; however, they often lack the fine-grained cross-modal understanding and have difficulty with multimodal alignment. 
 To address these limitations, we introduce OmniAgent, a fully audio-guided active perception agent that dynamically orchestrates specialized tools to achieve more fine-grained audio-visual reasoning.  
 Unlike previous works that rely on rigid, static workflows and dense frame-captioning, this paper demonstrates a paradigm shift from passive response generation to active multimodal inquiry. OmniAgent employs dynamic planning to autonomously orchestrate tool invocation on demand, strategically concentrating perceptual attention on task-relevant cues.
-Central to our approach is a novel coarse-to-fine audio-guided perception paradigm, which exploits audio cues to efficiently localize temporal events and guide subsequent granular analysis.
+Central to our approach is a novel coarse-to-fine audio-guided perception paradigm, which leverages audio cues to localize temporal events and efficiently guide subsequent granular analysis.
 Extensive empirical evaluations on three audio-video understanding benchmarks demonstrate that OmniAgent achieves state-of-the-art performance, surpassing leading open-source and proprietary models by substantial margins of 10% - 20%.
           </p>
         </div>
@@ -183,9 +199,9 @@ Extensive empirical evaluations on three audio-video understanding benchmarks de
       <div class="column is-five-sixths">
         <h2 class="title is-3 has-text-left">Method</h2>
         <figure>
-          <img data-src="static/images/method.png" alt="Overview of VidKV" 
+          <img data-src="static/images/method.png" alt="Overview of OmniAgent Framework" 
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
-          <figcaption class="title is-5">Overview of VidKV</figcaption>
+          <figcaption class="title is-5">Overview of OmniAgent Framework</figcaption>
       </figure>
       </figure>
     </div>
@@ -194,38 +210,49 @@ Extensive empirical evaluations on three audio-video understanding benchmarks de
 </section>
 <!-- End Method Section-->
 
-<!-- Results Section -->
-<section class="section hero is-small">
+<!-- Image carousel -->
+<section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-left">
-        <div class="column is-five-sixths">
-          <h2 class="title is-3">Results</h2>
-          <details>
-            <summary class="title is-5">Quantitative Comparisons (click to expand)</summary>
-            <div class="content">
-              <ul>
-                <li class="title is-6">Results on video understanding benchmarks from main paper. </li>
-              </ul>
-              <p class="has-text-centered">
-                <img data-src="static/images/tab1.png" 
-                      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
-              </p>
-              <ul>
-                <li class="title is-6">Results in ablation study from main paper. </li>
-              </ul>
-              <p class="has-text-centered">
-                <img data-src="static/images/tab2.png"
-                      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
-              </p>
-            </div>
-          </details>
-    </div>
+      <h2 class="title is-3 has-text-centered" style="margin-bottom: 0.5rem;">Results</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item" style="min-height: 100%; display: flex; flex-direction: column; justify-content: center;">
+        <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: 2rem auto;">
+          <img src="static/images/tab1.png" alt="main results" 
+               style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); max-width: 95%;">
+        </figure>
+        <h2 class="subtitle has-text-centered">
+        </h2>
+      </div>
+      <div class="item" style="min-height: 100%; display: flex; flex-direction: column; justify-content: center;">
+        <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: 2rem auto;">
+          <img src="static/images/tab2.png" alt="lossless performance" 
+               style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); max-width: 95%;">
+        </figure>
+        <h2 class="subtitle has-text-centered">
+      </h2>
+      </div>
+      <div class="item" style="min-height: 100%; display: flex; flex-direction: column; justify-content: center;">
+        <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: 2rem auto;">
+          <img src="static/images/tab3.png" alt="Mask analysis"
+               style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); max-width: 60%;">
+        </figure>
+        <h2 class="subtitle has-text-centered">
+       </h2>
+      </div>
+      <div class="item" style="min-height: 100%; display: flex; flex-direction: column; justify-content: center;">
+        <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: 2rem auto;">
+          <img src="static/images/fig5.png" alt="Error analysis"
+               style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); max-width: 60%;">
+        </figure>
+        <h2 class="subtitle has-text-centered">
+       </h2>
+     </div>
   </div>
 </div>
 </div>
 </section>
-<!-- End Results Section -->
+<!-- End image carousel -->
 
 <!-- Method Section-->
 <section class="section hero is-max-desktop" style="text-align: left;">
@@ -234,11 +261,11 @@ Extensive empirical evaluations on three audio-video understanding benchmarks de
       <div class="column is-five-sixths">
         <h2 class="title is-3">Contact</h2>
         <li class="title is-6">
-          This work produced by the Westlake ENCODE LAB.
+          This work produced by the <a href="https://westlake-encode-lab.github.io/">Westlake ENCODE LAB</a>.
         </li>
         
         <li class="title is-6">
-          If you have any questions, please contact with KD.TAO@outlook.com. <span style="display: inline-block; width: 500px;"></span>
+          If you have any questions, please contact with <a href="mailto:KD.TAO@outlook.com">KD.TAO@outlook.com</a>. <span style="display: inline-block; width: 500px;"></span>
         </li>
       </div>
     </div>
@@ -254,9 +281,9 @@ Extensive empirical evaluations on three audio-video understanding benchmarks de
       <h2 class="title">BibTeX</h2>
           <pre style="background-color: #ffffff; overflow-x: auto; white-space: pre-wrap;">
 <code>@article{vidkv,
-  title={Plug-and-Play 1.x-Bit KV Cache Quantization for Video Large Language Models},
-  author={Tao, Keda and You, Haoxuan and Sui, Yang and Qin, Can and Wang, Huan},
-  journal={arXiv preprint arXiv:2503.16257},
+  title={OmniAgent: Audio-Guided Active Perception Agent for Omnimodal Audio-Video Understanding},
+  author={Tao, Keda and Du, Wenjie and Yu, Bohan and Wang, Weiqiang and Wang, Huan},
+  journal={arXiv preprint arXiv:2512.xxxxx},
   year={2025}
 }</code></pre>
         </div>
